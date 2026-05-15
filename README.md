@@ -9,10 +9,10 @@ Method:
 
 Results:
 - Random walk functions in 2D, 3D, and in vector format
+- 5000 iterations, although capable of more
+![Random Walk in 2D for 5000 iterations](RandomWalk2D.mp4)
+![Random Walk in Vector 2D for 5000 iterations](RandomWalkVector2D.mp4)
 
-
-TO-DO:
-- Random Walk 3D Vector
-
-FINISHED:
-- Random Walk 2D, 2D Vector, 3D
+Features:
+- Visualization of random walk in 2D and 3D in static and animated graphs
+- Utilization of array slicing and NumPy's cumsum function to increase performance for the random walk functions

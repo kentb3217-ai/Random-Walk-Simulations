@@ -1,25 +1,11 @@
-# %%
-import matplotlib.pyplot as plt, numpy as np
+import matplotlib.pyplot as plt, numpy as np, RandomWalkAllFunctions
 from matplotlib.animation import FuncAnimation
 
 # Initialize
 n = 5000
 
-# Input: iterations (n), length of each line (r)
-# Output: Cumulative sum of all three coordinates (x, y, z)
-def random_walk_3D_vector(n, r=1):
-    phi = np.random.uniform(0, 2*np.pi, n)
-    theta = np.random.uniform(0, 2*np.pi, n)
-    x = r*np.sin(phi)*np.cos(theta)
-    y = r*np.sin(phi)*np.sin(theta)
-    z = r*np.cos(phi)
-    cartesian = [x, y, z]
-    coords = np.cumsum(cartesian, axis=1)
-    coords = np.insert(coords, 0, [0,0,0], axis=1)
-    return coords[0], coords[1], coords[2]
-
 # Extract x, y, z from function
-x, y, z = random_walk_3D_vector(n)
+x, y, z = RandomWalkAllFunctions.random_walk_3D_vector(n)
 
 # Create empty graph
 fig, ax = plt.subplots(2, 1, subplot_kw={'projection': '3d'})

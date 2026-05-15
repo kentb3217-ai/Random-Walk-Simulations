@@ -1,21 +1,11 @@
-# %%
-import numpy as np, matplotlib.pyplot as plt
+import numpy as np, matplotlib.pyplot as plt, RandomWalkAllFunctions
 from matplotlib.animation import FuncAnimation
-import ffmpeg
 
 # Iterations
 n = 5000
 
-# Input: iterations (n), initial x, initial y, and initial z
-# Output: Array of size n x 3
-def random_walk3D(n, init_x = 0, init_y = 0, init_z = 0):
-    steps = np.random.choice([-1, 1], size=(n, 3))
-    coords = np.cumsum(steps, axis=0) 
-    coords = np.insert(coords, 0, [init_x, init_y, init_z], axis=0)
-    return coords[:, 0], coords[:, 1], coords[:, 2]
-
 # Extract x, y, and z coordinates from random_walk_3D function
-x, y, z = random_walk3D(n)
+x, y, z = RandomWalkAllFunctions.random_walk3D(n)
 
 # Create empty graph
 fig, ax = plt.subplots(2, 1, subplot_kw={'projection': '3d'})

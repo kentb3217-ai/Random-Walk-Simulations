@@ -1,23 +1,11 @@
-# %%
-import numpy as np, matplotlib.pyplot as plt
+import numpy as np, matplotlib.pyplot as plt, RandomWalkAllFunctions
 from matplotlib.animation import FuncAnimation
 
 # Iterations
 n = 5000
 
-# Input: iterations (n), length of each line (r)
-# Output: x and y coordinates of the cumulative sum of the randomly generated paths.
-def random_walk_vector_2D(n, r=1):
-    theta = np.random.uniform(0, 2*np.pi, size=n)
-    x = r*(np.cos(theta))
-    y = r*(np.sin(theta))
-    cartesian = [x, y]
-    coords = np.cumsum(cartesian, axis=1) # if axis=0 it creates an ellipse shape
-    coords = np.insert(coords, 0, [0,0], axis=1)
-    return coords[0], coords[1]
-
 # Extract x and y coordinates from random_walk_vector_2D function
-x, y = random_walk_vector_2D(n)
+x, y = RandomWalkAllFunctions.random_walk_vector_2D(n)
 
 # Create empty graph for animator and static graph
 fig, ax = plt.subplots(2, 1)

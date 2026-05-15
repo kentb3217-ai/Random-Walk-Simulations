@@ -1,20 +1,11 @@
-# %%
-import matplotlib.pyplot as plt, numpy as np
+import matplotlib.pyplot as plt, numpy as np, RandomWalkAllFunctions
 from matplotlib.animation import FuncAnimation
-import ffmpeg
 
 # Iterations
 n = 5000
 
-# Input: iterations (n)
-# Output:  x and y coordinates of the cumulative sum of the randomly generated paths.
-def random_walk_2D(n):
-    steps = np.random.choice([-1, 1], size=(n, 2))
-    coords = np.cumsum(steps, axis=0)
-    return coords[:, 0], coords[:, 1]
-
 # Extract x and y coordinates from random_walk_vector_2D function
-x, y = random_walk_2D(n)
+x, y = RandomWalkAllFunctions.random_walk_2D(n)
 
 # Create empty graph
 fig, ax = plt.subplots(2, 1)
