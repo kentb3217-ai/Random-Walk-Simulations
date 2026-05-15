@@ -1,0 +1,51 @@
+# %%
+import matplotlib.pyplot as plt, numpy as np
+from matplotlib.animation import FuncAnimation
+import ffmpeg
+
+# Iterations
+n = 5000
+
+# Input: iterations (n)
+# Output:  x and y coordinates of the cumulative sum of the randomly generated paths.
+def random_walk_2D(n):
+    steps = np.random.choice([-1, 1], size=(n, 2))
+    coords = np.cumsum(steps, axis=0)
+    return coords[:, 0], coords[:, 1]
+
+# Extract x and y coordinates from random_walk_vector_2D function
+x, y = random_walk_2D(n)
+
+# Create empty graph
+fig, ax = plt.subplots(2, 1)
+fig.suptitle(f'Random Walk Vector, n = {n}')
+
+# Adjust vertical spacing
+fig.subplots_adjust(hspace=.4)
+
+# Create animator graph
+ax[0].set(xlim=(np.min(x), np.max(x)), ylim=(np.min(y), np.max(y)))
+ax[0].set_title('Animated')
+
+# Create static graph
+ax[1].plot(x, y, lw=1)
+ax[1].set_title('Static')
+ax[1].scatter(x[0], y[0], c='lime', s=10, label='start', zorder=2)
+ax[1].scatter(x[-1], y[-1], c='r', s=10, label='end', zorder=2)
+ax[1].legend()
+
+# Create empty line and point objects with no data. Will be updated during animation
+my_line, = ax[0].plot([], [], lw=1) # Line shows path, make sure to add comma at end to unpack it
+my_point, = ax[0].plot([], [], 'ro', ms=5) # Dot to show current position, make sure to add comma at end to unpack it
+
+# Update line and point for each iteration for the animator
+def get_step(n, x, y, this_line, this_point):
+    this_line.set_data(x[:n+1], y[:n+1])
+    this_point.set_data([x[n]], [y[n]])
+    return this_line, this_point
+
+# Call animator
+random_walk_movie = FuncAnimation(fig, get_step, frames=n, fargs=(x, y, my_line, my_point)) # fargs specifies the data, line, and point objects to use when updating the frame
+
+# Save animation and static graph in current directory
+random_walk_movie.save('RandomWalk2D.mp4', fps=30, dpi=300)
