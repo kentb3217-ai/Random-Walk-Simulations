@@ -20,7 +20,3 @@ Graphs and animations:
 ![Random Walk in 2D for 5000 iterations](RandomWalk2D.mp4)
 
 ![Random Walk in Vector 2D for 5000 iterations](RandomWalkVector2D.mp4)
-
-Features:
-- Visualization of random walk in 2D and 3D in static and animated graphs
-- Utilization of array slicing and NumPy's cumsum function to increase performance for the random walk functions
