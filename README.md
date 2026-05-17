@@ -10,7 +10,10 @@ Method:
 Results:
 - Random walk functions in 2D, 3D, and in vector format
 - 5000 iterations, although capable of more
+Graphs and animations: 
+
 ![Random Walk in 2D for 5000 iterations](RandomWalk2D.mp4)
+
 ![Random Walk in Vector 2D for 5000 iterations](RandomWalkVector2D.mp4)
 
 Features:
