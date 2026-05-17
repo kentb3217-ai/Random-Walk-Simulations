@@ -11,6 +11,10 @@ Results:
 - Random walk functions in 2D, 3D, and in vector format
 - 5000 iterations, although capable of more
 
+Features:
+- Visualization of random walk in 2D and 3D in static and animated graphs
+- Utilization of array slicing and NumPy's cumsum function to increase performance for the random walk functions
+
 Graphs and animations: 
 
 ![Random Walk in 2D for 5000 iterations](RandomWalk2D.mp4)
